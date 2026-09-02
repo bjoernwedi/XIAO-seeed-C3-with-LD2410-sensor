@@ -1,6 +1,6 @@
 # XIAO-seeed-C3-with-LD2410-sensor
 
-´´´
+```
 substitutions:
   device_name: "seeed-c3-motion-sensor"
   friendly_name: "Seeed C3 Motion Sensor"
@@ -295,4 +295,4 @@ select:
 
 esp32_ble_tracker:
 
-´´´
+```
