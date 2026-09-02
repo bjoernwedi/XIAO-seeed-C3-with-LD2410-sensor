@@ -2,8 +2,10 @@
 
 ```
 substitutions:
-  device_name: "seeed-c3-motion-sensor"
-  friendly_name: "Seeed C3 Motion Sensor"
+  device_name: "seeed-c3-motion-sensor"       # or what ever you like
+  friendly_name: "Seeed C3 Motion Sensor"     # or what ever you like
+  area: "my room"                             # or what ever you like
+
 esphome:
   name: $device_name
   friendly_name: $friendly_name
@@ -17,19 +19,19 @@ api:
     key: !secret api_encryption
 ota:
   - platform: esphome
-    password: !secret ota_password
+    password: !secret ota_password             # assuming you have set OTA PWD for ESPhome
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+  ssid: !secret wifi_ssid                      # assuming you have set WIFI SSID for ESPhome
+  password: !secret wifi_password              # assuming you have set WIFI PWD for ESPhome
   min_auth_mode: WPA2
   ap:
     ssid: $device_name
-    password: !secret wifi_fallback_password
-bluetooth_proxy:
-  active: true
+    password: !secret wifi_fallback_password   # assuming you have set AP mode fallback PWD for ESPhome
+#bluetooth_proxy:
+#  active: true
 web_server:
   auth:
-    password: SP111
+    password: !secret wifi_fallback_password    # assuming you have set WEB PWD for ESPhome
     username: admin
 uart:
   - id: uart_ld2410
